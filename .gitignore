@@ -1,0 +1,20 @@
+## Build outputs
+bin/
+obj/
+cipx/
+
+## IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+## Test tools (not part of plugin distribution)
+test_receiver.py
+
+## OS
+Thumbs.db
+.DS_Store
+
+## Working memory
+.workbuddy/

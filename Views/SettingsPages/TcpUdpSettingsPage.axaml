@@ -1,0 +1,110 @@
+<ci:SettingsPageBase x:Class="ClassIsland.TcpUdpSender.Views.SettingsPages.TcpUdpSettingsPage"
+      x:DataType="local:TcpUdpSettingsPage"
+      xmlns="https://github.com/avaloniaui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ClassIsland.TcpUdpSender.Views.SettingsPages"
+      xmlns:ci="http://classisland.tech/schemas/xaml/core"
+      mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="16" Spacing="8">
+            <TextBlock Text="TCP/UDP 课表发送器" FontSize="18" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <Border Classes="SettingItem">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel>
+                        <TextBlock Text="启用发送" Classes="Title"/>
+                        <TextBlock Text="开启后会定时将课表发送到目标设备" Classes="Subtitle"/>
+                    </StackPanel>
+                    <ToggleSwitch IsChecked="{Binding Settings.IsEnabled}"
+                                  Grid.Column="1"
+                                  HorizontalAlignment="Right"/>
+                </Grid>
+            </Border>
+
+            <Border Classes="SettingItem">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel>
+                        <TextBlock Text="目标地址" Classes="Title"/>
+                        <TextBlock Text="接收设备的 IP 地址" Classes="Subtitle"/>
+                    </StackPanel>
+                    <TextBox Text="{Binding Settings.TargetAddress}"
+                             Width="150"
+                             Grid.Column="1"/>
+                </Grid>
+            </Border>
+
+            <Border Classes="SettingItem">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel>
+                        <TextBlock Text="目标端口" Classes="Title"/>
+                        <TextBlock Text="接收设备的端口号" Classes="Subtitle"/>
+                    </StackPanel>
+                    <NumericUpDown Value="{Binding Settings.TargetPort}"
+                                   Minimum="1"
+                                   Maximum="65535"
+                                   Width="120"
+                                   Grid.Column="1"/>
+                </Grid>
+            </Border>
+
+            <Border Classes="SettingItem">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel>
+                        <TextBlock Text="协议类型" Classes="Title"/>
+                        <TextBlock Text="选择 TCP 或 UDP 协议" Classes="Subtitle"/>
+                    </StackPanel>
+                            <ComboBox SelectedItem="{Binding Settings.Protocol}"
+                                      ItemsSource="{Binding ProtocolOptions}"
+                              Grid.Column="1"
+                              Width="100"/>
+                </Grid>
+            </Border>
+
+            <Border Classes="SettingItem">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel>
+                        <TextBlock Text="发送格式" Classes="Title"/>
+                        <TextBlock Text="选择发送数据的格式" Classes="Subtitle"/>
+                    </StackPanel>
+                            <ComboBox SelectedItem="{Binding Settings.SendFormat}"
+                                      ItemsSource="{Binding FormatOptions}"
+                              Grid.Column="1"
+                              Width="120"/>
+                </Grid>
+            </Border>
+
+            <Border Classes="SettingItem">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel>
+                        <TextBlock Text="发送间隔" Classes="Title"/>
+                        <TextBlock Text="每次发送的间隔秒数" Classes="Subtitle"/>
+                    </StackPanel>
+                    <NumericUpDown Value="{Binding Settings.SendInterval}"
+                                   Minimum="5"
+                                   Maximum="3600"
+                                   Width="120"
+                                   Grid.Column="1"/>
+                </Grid>
+            </Border>
+
+            <Border Classes="SettingItem" x:Name="CustomTemplateBorder">
+                <StackPanel Spacing="4">
+                    <TextBlock Text="自定义模板" Classes="Title"/>
+                    <TextBlock Text="可用占位符：{date} {time} {subject} {initial} {teacher} {start} {end} {index} {isChanged}"
+                               Classes="Subtitle"
+                               TextWrapping="Wrap"/>
+                    <TextBox Text="{Binding Settings.CustomTemplate}"
+                             AcceptsReturn="True"
+                             Height="60"/>
+                </StackPanel>
+            </Border>
+
+            <Button Content="立即测试发送"
+                    HorizontalAlignment="Right"
+                    Margin="0,8,0,0"
+                    Click="OnTestSendClick"/>
+        </StackPanel>
+    </ScrollViewer>
+</ci:SettingsPageBase>
