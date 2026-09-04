@@ -5,7 +5,7 @@ entranceAssembly: "ClassIsland.TcpUdpSender.dll"
 url: https://github.com/ChenTianyu-CTY/ClassIsland.TcpUdpSender
 repoOwner: ChenTianyu-CTY
 repoName: ClassIsland.TcpUdpSender
-assetsRoot: main/ClassIsland.TcpUdpSender
+assetsRoot: master/
 version: 1.0.0.0
 apiVersion: 2.0.0.0
 author: CTY
