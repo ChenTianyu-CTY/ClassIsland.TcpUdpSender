@@ -13,8 +13,9 @@ ClassIsland 2 插件，通过 TCP/UDP 协议将当前课表实时发送到指定
 ## 安装
 
 1. 下载 `.cipx` 插件包
-2. 在 ClassIsland 中打开「插件」→「安装插件」→ 选择文件
-3. 或者手动放入 `data\Plugins\ClassIsland.TcpUdpSender\`
+2. 在 ClassIsland 中打开「插件」页面，让后拖入安装包
+
+**你也可以在插件市场下载**
 
 ## 设置
 
